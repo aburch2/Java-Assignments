@@ -1,0 +1,9 @@
+README
+
+This program allows a user to select a movie seat based upon price or which ever seat they desire.
+
+To begin this program, you must first build the project to run it. Once the project is running, the user will be prompted with whether or not they would like to pick a seat. If the user says no, they are then asked if they would rather pick a price range to look at.
+
+If the user says 'y' to picking a seat, the user is then asked which row and column they would like to sit in. If the price is not zero, the seat is available and purchased. if the price is zero, the seat is taken. and prompted if they would like to pick another.
+
+If the user says 'n' to picking a seat, then the user is asked if they would like to look at a price range. The user is then asked which price range they would like to look at and the seating chart is displayed with that price range. The user is then asked if they would like to get a ticket from the current seats shown.
