@@ -1,0 +1,142 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package theatertickets;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Amber Burch
+ */
+public class TheaterTickets {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+        final int ROWS = 8;                     //Initialize 2-D array
+        final int COLUMNS = 10;
+        String newticket="";
+        
+        int [][] seatingchart =                //Populate array
+        {
+            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+            { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
+            { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
+            { 20, 20, 30, 30, 40, 40, 30, 30, 20, 20 },
+            { 20, 30, 30, 40, 50, 50, 40, 30, 30, 20 },
+            { 30, 40, 50, 50, 50, 50, 50, 50, 40, 30 },
+        };
+     
+     while (!newticket.equalsIgnoreCase("n"))
+     {
+
+        System.out.print("Would you like to pick a seat? (y/n) ");
+        String choice = in.next();
+        
+        while (choice.equalsIgnoreCase("y"))
+        {
+            System.out.print("What row would you like to sit in? (1-8) ");      //User select row
+            int selectrow = in.nextInt();
+            selectrow--;                                                        //Subtract from row so 0-7
+            
+            System.out.print("What column would you like to sit in? (1-10)");   //User select Column
+            int selectcol = in.nextInt();
+            selectcol--;                                                        //Subtract from column so 0-9
+            
+            int seatchoice = seatingchart[selectrow][selectcol];                //Seat selection
+            if (seatingchart[selectrow][selectcol] != 0)                        //If price is not zero seat is available
+            {
+                System.out.println("Seat is available");                        //set price to zero, purchase has been made
+                seatingchart[selectrow][selectcol]= 0;
+                //PrintChart(seatingchart);
+            for (int i=0; i <ROWS; i++)
+            {
+                for (int j=0; j < COLUMNS; j++)
+                {
+                    System.out.print(seatingchart[i][j] + " ");                 //Print out price
+                }
+                System.out.println();                                           //Print to new line
+            }                
+                
+            }
+            else
+            {
+                System.out.println("Seat is taken try again.");
+            }
+            
+            System.out.print("Would you like to pick another seat?(y/n) ");
+            choice = in.next();
+        }
+        
+        System.out.print("Would you like to choose a price range?");            //Price Range
+        String choice2 = in.next();
+        
+        while (choice2.equalsIgnoreCase("y"))
+        {
+            System.out.print("What price range would you like to select: [increments of 10, highest 50] ");
+            int pricerange = in.nextInt();                                      //Read in price range
+            
+            for (int i=0; i<ROWS; i++)                                          //Print array
+            {
+                for (int j=0; j<COLUMNS; j++)
+                {
+                    if (seatingchart[i][j]==pricerange)                         //if array[][] = price range
+                    {
+                        System.out.print(seatingchart[i][j] + " ");             //Print price range
+                    }
+                    else
+                    {
+                        System.out.print("--" + " ");                           //blocks prices out of range
+                    }
+                }
+                System.out.println();
+            }
+            
+            System.out.print("What row would you like to sit in within your price range? ");    //pick row within price range
+            int selectrow = in.nextInt();
+            selectrow--;
+            
+            System.out.print("What column would you like to sit in within your price range? "); //pick column within price range
+            int selectcol = in.nextInt();
+            selectcol--;
+            
+            int seatchoice = seatingchart[selectrow][selectcol];
+                
+                if (seatingchart[selectrow][selectcol] != 0)                    //if seat is not zero, seat is available
+                {
+                    System.out.println("Seat is available");
+                    seatingchart[selectrow][selectcol]= 0;                      //set price to zero after purchase
+                    //PrintChart(seatingchart);
+                for (int i=0; i <ROWS; i++)
+                {
+                    for (int j=0; j < COLUMNS; j++)
+                    {
+                        System.out.print(seatingchart[i][j] + " ");             //print out seating chart
+                    }
+                    System.out.println();
+                }                
+
+                }
+                else
+                {
+                    System.out.println("Seat is taken try again.");
+                }
+
+            System.out.print("Would you like to select another price range to look at?(y/n) "); //loop
+            choice2 = in.next();
+            
+        }
+        
+        System.out.print("Would you like to purchase another movie ticket?(y/n) ");         //loop
+        newticket = in.next();
+    }
+                
+    }
+
+}
