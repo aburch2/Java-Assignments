@@ -1,0 +1,126 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package rockpaperscissors;
+import java.util.Scanner;
+import java.util.Random;
+/**
+ *
+ * @author Amber Burch
+ */
+public class RockPaperScissors {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner in = new Scanner(System.in);
+        //Introduction
+        System.out.println("Welcome to Rock, Papers, Scissors");
+        System.out.println("Type r-rock, p-paper, s-scissors");
+        System.out.println("To quit the game, type q");
+        int playertemp = 0;
+        int playercount = 0;
+        int computercount = 0;
+        
+        System.out.print("Your turn: ");                    //user input
+        String player = in.next();
+        
+        while (!player.equalsIgnoreCase("q"))               //while user does not want to quit
+        {
+            /*System.out.println(player);*/
+            if (player.equalsIgnoreCase("r"))               //if r, R is for Rock. let r=0 
+            {
+                playertemp = 0;
+                System.out.println("You Chose: Rock");
+            }
+            if (player.equalsIgnoreCase("p"))               //if p, p is for Paper. let p=1 
+            {
+                playertemp = 1;
+                System.out.println("You Chose: Paper");
+            }
+            if (player.equalsIgnoreCase("s"))               //if s, s is for Scissors. let s=2 
+            {
+                playertemp = 2;
+                System.out.println("You Chose: Scissors");
+            }
+            
+            Random rndNumbers = new Random();               //Computer's turn, randomize number
+            int computer = 0;
+
+            computer = rndNumbers.nextInt(2);               //Random number from 0-2
+            /*System.out.println(computer);*/
+            
+            if (computer == 0)                              //Let 0=Rock
+            {
+                System.out.println("Computer: Rock");
+            }
+            if (computer == 1)                              //Let 1=Paper
+            {
+                System.out.println("Computer: Paper");
+            }
+            if (computer == 2)                              //Let 2=Scissors
+            {
+                System.out.println("Computer: Scissors");
+            }
+            
+            String champion = Winner(playertemp,computer);  //Call Winner function, return string
+            //Keep track of score
+            if (champion.equals("Computer"))
+            {
+                computercount++;
+            }
+            else if (champion.equals("Player"))
+            {
+                playercount++;
+            }
+            
+            System.out.println("Score- " + "You: " + playercount + " Computer: " + computercount);
+            
+        System.out.print("Your turn: ");
+        player = in.next();
+
+        }
+    }
+    //Winner function, return string of winner
+    public static String Winner(int playertemp, int computer)
+    {        
+            if (playertemp==0 && computer==1)
+            {
+                System.out.println("Paper beats rock, you lose!");
+                return "Computer";
+            }
+            else if (playertemp==1 && computer==2)
+            {
+                System.out.println("Scissors cut paper, you lose!");
+                return "Computer";
+            }
+            else if (playertemp==0 && computer==2)
+            {
+                System.out.println("Rock crushes scissors, you WIN!");
+                return "Player";
+            }
+            else if (playertemp==1 && computer==0)
+            {
+                System.out.println("Paper beats rock, you WIN!");
+                return "Player";
+            }
+            else if (playertemp==2 && computer==1)
+            {
+                System.out.println("Scissors cut paper, you WIN!");
+                return "Player";
+            }
+            else if (playertemp==2 && computer==0)
+            {
+                System.out.println("Rock crushes scissors, you lose!");
+                return "Computer";
+            }
+            else
+            {
+                System.out.println("Tie!");
+            }
+          return ""; //if tie, no string is returned
+        }
+}
