@@ -1,0 +1,43 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fizzbuzz;
+
+/**
+ *
+ * @author Amber Burch
+ */
+public class FizzBuzz {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        for(int i=0; i <= 100; i++)
+        {
+            if (i%3 ==0 && i%5 ==0 && i!=0)             //if divisible by 3 and 5
+            {
+                System.out.println("fizzbuzz");
+                i++;
+            }
+                if (i%3 ==0 && i !=0)                   //if divisible by 3
+                {
+                    System.out.println("fizz");
+                    i++;
+                }
+                if (i%5 ==0 && i!=0)                    //if divisble by 5
+                {
+                    System.out.println("buzz");
+                }
+                else
+                {
+                    System.out.println(i);              //else print number
+                }
+            }                
+            
+
+            }
+        }
+    
+
