@@ -1,0 +1,11 @@
+README
+
+Rock, Paper, Scissors is a very old fashion game many children play with friends. The concept of the game is simple, you have three options. Each opponent picks between rock, paper or scissors. In this game, you will be playing the computer. On your turn, you will select which source of attack you would like: r for rock, p for paper or s for scissors.
+
+The computer then generates at random their source of attack. Once you hit enter, the computer will reveal what they have picked. The following rules apply to knowing what beats what:
+
+Paper covers rock
+Rock crushes scissors
+Scissors cut paper
+
+The score is then kept to see who is winning. When there is a tie, there is no winner and the score remains the same until the next game. To end the game at any time, enter the 'q' key to quit.
