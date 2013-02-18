@@ -1,0 +1,5 @@
+README
+
+Fizzbuzz is a very simple program. There is no user input or anything the user has to do but run the program. For every number that is divisible by 3, the word "fizz" is printed. For every number divisible by 5, the word "buzz" is printed. And for every number that is divisible by 3 and 5, the word "fizzbuzz" is printed.
+
+All the user has to do to run the program is to build the project, then run the project. Simple as that.
